@@ -1,0 +1,158 @@
+#:kivy 1.11.1
+
+<Button>:
+    background_normal: ''
+    background_color: 0.93, 0.95, 0.95, 1
+    font_size: 20
+    color: 0, 0, 0, 1
+    size_hint: 0.24, 0.09
+    bold: True
+
+<FloatLayout>:
+    txt: txt
+    lbl: lbl
+
+    Button:
+        text: '.'
+        pos_hint: {'x': 0, 'y': 0}
+        on_press: app.operate('num', '.')
+    Button:
+        text: '0'
+        pos_hint: {'x': 0.25, 'y': 0}
+        on_press: app.operate('num', 0)
+    Button:
+        text: '='
+        pos_hint: {'x': 0.5, 'y': 0}
+        on_press: app.calculate()
+    Button:
+        text: '+'
+        pos_hint: {'x': 0.75, 'y': 0}
+        on_press: app.operate('+')
+
+    Button:
+        text: '1'
+        pos_hint: {'x': 0, 'y': 0.1}
+        on_press: app.operate('num', 1) 
+    Button:
+        text: '2'
+        pos_hint: {'x': 0.25, 'y': 0.1}
+        on_press: app.operate('num', 2)
+    Button:
+        text: '3'
+        pos_hint: {'x': 0.5, 'y': 0.1}
+        on_press: app.operate('num', 3)
+    Button:
+        text: '-'
+        pos_hint: {'x': 0.75, 'y': 0.1}
+        on_press: app.operate('-')
+
+    Button:
+        text: '4'
+        pos_hint: {'x': 0, 'y': 0.2}
+        on_press: app.operate('num', 4)
+    Button:
+        text: '5'
+        pos_hint: {'x': 0.25, 'y': 0.2}
+        on_press: app.operate('num', 5)
+    Button:
+        text: '6'
+        pos_hint: {'x': 0.5, 'y': 0.2}
+        on_press: app.operate('num', 6)
+    Button:
+        text: 'x'
+        pos_hint: {'x': 0.75, 'y': 0.2}
+        on_press: app.operate('*')
+
+    Button:
+        text: '7'
+        pos_hint: {'x': 0, 'y': 0.3}
+        on_press: app.operate('num', 7)
+    Button:
+        text: '8'
+        pos_hint: {'x': 0.25, 'y': 0.3}
+        on_press: app.operate('num', 8)
+    Button:
+        text: '9'
+        pos_hint: {'x': 0.5, 'y': 0.3}
+        on_press: app.operate('num', 9)
+    Button:
+        text: '/'
+        pos_hint: {'x': 0.75, 'y': 0.3}
+        on_press: app.operate('/')
+
+    Button:
+        text: 'x^y'
+        pos_hint: {'x': 0, 'y': 0.4}
+        on_press: app.operate('^')
+    Button:
+        text: 'sqrt(x)'
+        pos_hint: {'x': 0.25, 'y': 0.4}
+        on_press: app.calculate('sqrt')
+    Button:
+        text: 'Floor'
+        pos_hint: {'x': 0.5, 'y': 0.4}
+        on_press: app.operate('floor')
+    Button:
+        text: 'Ceil'
+        pos_hint: {'x': 0.75, 'y': 0.4}
+        on_press: app.operate('ceil')
+
+    Button:
+        text: 'AC'
+        pos_hint: {'x': 0, 'y': 0.5}
+        on_press: app.update(True)
+    Button:
+        text: 'x!'
+        pos_hint: {'x': 0.25, 'y': 0.5}
+        on_press: app.calculate('!')
+    Button:
+        text: 'mod'
+        pos_hint: {'x': 0.5, 'y': 0.5}
+        on_press: app.operate('mod')
+    Button:
+        text: 'Del'
+        pos_hint: {'x': 0.75, 'y': 0.5}
+        on_press: app.operate('del')
+
+    Button:
+        font_size: 15
+        size_hint: 0.24, 0.04
+        text: 'MC'
+        pos_hint: {'x': 0, 'y': 0.6}
+        on_press: app.memory('MC')
+    Button:
+        font_size: 15
+        size_hint: 0.24, 0.04
+        text: 'MR'
+        pos_hint: {'x': 0.25, 'y': 0.6}
+        on_press: app.memory('MR')
+    Button:
+        font_size: 15
+        size_hint: 0.24, 0.04
+        text: 'M+'
+        pos_hint: {'x': 0.5, 'y': 0.6}
+        on_press: app.memory('M+')
+    Button:
+        font_size: 15
+        size_hint: 0.24, 0.04
+        text: 'MS'
+        pos_hint: {'x': 0.75, 'y': 0.6}
+        on_press: app.memory('MS')
+
+    TextInput:
+        id: txt
+        size_hint: 1, 0.34
+        pos_hint: {'x': 0, 'y': 0.65}
+        cursor_color: 0, 0, 0, 1
+        base_direction: 'rtl'
+        font_size: 30
+        text: '0'
+        readonly: True
+
+    Label:
+        id: lbl
+        size_hint: 0.01, 0.01
+        pos_hint: {'x': 0.03, 'y': 0.67}
+        color: 0, 0, 0, 1
+        font_size: 20
+        text: app.m
